@@ -1,0 +1,15 @@
+{
+  "name": "fibnk",
+  "private": true,
+  "description": "FIBNK — team project management (React + Express + Prisma + PostgreSQL + Socket.IO)",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "db:generate": "npm --prefix server run prisma:generate",
+    "db:migrate": "npm --prefix server run prisma:deploy",
+    "db:seed": "npm --prefix server run seed",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "test": "npm --prefix server test",
+    "build": "npm --prefix server run build && npm --prefix client run build"
+  }
+}
