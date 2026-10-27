@@ -1,3 +1,4 @@
+const API_BASE_URL = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
 export class ApiError extends Error {
   constructor(
     public status: number,
@@ -14,7 +15,7 @@ async function request<T>(method: string, url: string, body?: Json | FormData): 
   const isForm = typeof FormData !== "undefined" && body instanceof FormData;
   let res: Response;
   try {
-    res = await fetch(`/api${url}`, {
+    res = await fetch(`${API_BASE_URL}/api${url}`, {
       method,
       credentials: "include",
       headers: body && !isForm ? { "Content-Type": "application/json" } : undefined,
